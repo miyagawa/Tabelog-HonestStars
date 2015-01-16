@@ -21,7 +21,7 @@ function patch(){
     return honest;
   };
 
-  $('[rel="v:rating"]').each(function(index, element) {
+  $('[rel="v:rating"], .rate .score').each(function(index, element) {
     var el = $(element);
     var score = parseFloat(el.text());
     if (isNaN(score)) return;
