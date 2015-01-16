@@ -1,9 +1,5 @@
 function patch(){
-  $('[rel="v:rating"]').each(function(index, element) {
-    var el = $(element);
-    var score = parseFloat(el.text());
-    if (isNaN(score)) return;
-
+  var honestify = function(score) {
     var honest;
     if (score >= 4.0) {
       honest = 5.0;
@@ -22,10 +18,27 @@ function patch(){
     }
 
     console.log("Original score: " + score + ", Honest score: " + honest);
+    return honest;
+  };
 
+  $('[rel="v:rating"]').each(function(index, element) {
+    var el = $(element);
+    var score = parseFloat(el.text());
+    if (isNaN(score)) return;
+
+    var honest = honestify(score);
     var image = "http://image1-3.tabelog.k-img.com/images/restaurant/star/star_ll" + (honest * 10) + ".gif";
     el.text(honest.toFixed(1));
     el.parent().find("img").attr("src", image);
+  });
+
+  $(".info .score-overall").each(function(index, element) {
+    var score = parseFloat($(element).find(".score").text());
+    if (isNaN(score)) return;
+
+    var honest = honestify(score);
+    $(element).find(".score").text(honest.toFixed(1));
+    $(element).find(".star").removeClass().addClass("star star" + honest * 10);
   });
 }
 
