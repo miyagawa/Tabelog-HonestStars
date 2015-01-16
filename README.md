@@ -10,6 +10,6 @@ This Chrome extension changes the display of stars on Tabelog in Honest Scale, h
 * 3.0 to 3.1 => 2 stars
 * below 3.0  => 1 star
 
-![](http://dl.dropbox.com/u/135035/Screenshots/snzvdpasdfva.png)
+![](http://dl.dropbox.com/u/135035/Screenshots/43ah9ds1gbol.png)
 
 Download the crx binary from [Releases](https://github.com/miyagawa/Tabelog-HonestStars/releases). To install the extension, open the chrome://extensions page and drag and drop the `.crx` file from the Downloads.
