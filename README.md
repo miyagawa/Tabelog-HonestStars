@@ -1,4 +1,4 @@
-Tabelog's ranking system is well known for [its scores being very crowded between 3.1 and 3.5](http://tabelog.com/help/score/). Most restaurants over 4 stars (or even 3.5) are exceptionally great, while those around 3.0 are not as good.
+Tabelog's score system is well known for [its points distributed mostly between 3.1 and 3.5](http://tabelog.com/help/score/). Most restaurants over 4 stars (or even 3.5) are exceptionally great, while those around 3.0 are not as good.
 
 This Chrome extension changes the display of stars on Tabelog in Honest Scale, hence making it more accurate and intuitive, as follows:
 
