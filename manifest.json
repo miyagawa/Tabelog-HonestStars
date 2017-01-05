@@ -2,14 +2,15 @@
   "manifest_version": 2,
   "name": "Tabelog Honest Stars",
   "description": "Display Tabelog Stars in Honest Scale",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "permissions": [
     "tabs",
-    "http://tabelog.com/*"
+    "http://tabelog.com/*",
+    "https://tabelog.com/*"
   ],
   "content_scripts": [
     {
-      "matches": ["http://tabelog.com/*"],
+      "matches": ["http://tabelog.com/*", "https://tabelog.com/*"],
       "js": ["myscript.js"],
       "run_at": "document_end"
     }

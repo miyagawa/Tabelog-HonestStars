@@ -21,23 +21,30 @@ function patch(){
     return honest;
   };
 
-  $('.rate .score').each(function(index, element) {
-    var score = parseFloat($(element).text());
-    if (isNaN(score)) return;
+  $(".rdheader-data").each(function() {
+    var parent = this;
+    $('[rel="v:rating"] span', parent).each(function(index, element) {
+      var score = parseFloat($(element).text());
+      if (isNaN(score)) return;
 
-    var honest = honestify(score);
-    $(element).html(honest.toFixed(1) + ' <span class="tabelog-score">(' + score.toFixed(2) + ")</span>");
-    $(element).parent().find("img")
-     .attr("src", "http://image1-3.tabelog.k-img.com/images/restaurant/star/star_ll" + (honest * 10) + ".gif");
+      var honest = honestify(score);
+      $(element).html(honest.toFixed(1) + ' <span class="tabelog-score">(' + score.toFixed(2) + ")</span>");
+      var rate = $(".tb-rating", parent)[0];
+      rate.className = rate.className.replace(/tb-rating--val\d\d/, "tb-rating--val" + honest * 10);
+    });
   });
 
-  $(".info .score-overall").each(function(index, element) {
-    var score = parseFloat($(element).find(".score").text());
-    if (isNaN(score)) return;
+  $(".list-rst").each(function() {
+    var parent = this;
+    $(".tb-rating__val", parent).each(function(index, element) {
+      var score = parseFloat($(element).text());
+      if (isNaN(score)) return;
 
-    var honest = honestify(score);
-    $(element).find(".score").html(honest.toFixed(1) + ' <span class="tabelog-score">(' + score.toFixed(2) + ")</span>");
-    $(element).find(".star").removeClass().addClass("star star" + honest * 10);
+      var honest = honestify(score);
+      $(element).html(honest.toFixed(1) + ' <span class="tabelog-score">(' + score.toFixed(2) + ")</span>");
+      var rate = $(".tb-rating", parent)[0];
+      rate.className = rate.className.replace(/tb-rating--val\d\d/, "tb-rating--val" + honest * 10);
+    });
   });
 }
 
